@@ -1,6 +1,5 @@
-<html>
-<title>Todo App</title>
 
+<h3 style= "text-align:center">Update Task </h3>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 <style>
@@ -52,40 +51,9 @@
 
 
 <div class="center-column">
-    <form method="POST" action =""> 
+    <form method='POST' action="">
         {% csrf_token %}
-        {{form.title}}
-        <input class="btn btn-info" type='submit' name ='Create Task'>
+        {{form}}
+        <input class="btn btn-sm btn-info" type='submit' name='Update Task'>
     </form>
-
-    <div class="todo-list">
-
-        {% for task in tasks %}
-            <div class="item-row">
-                
-                {% if task.completed == True%}
-                    <strike>{{task}}</strike>
-                {% else%}
-                    <span>{{task}}</span>
-                {% endif%}
-                <a class="btn btn-sm btn-info" href=" {% url 'Update_task' task.id %}" >Update</a>
-                <a class="btn btn-sm btn-danger" href=" {% url 'Delete_task' task.id %}" >Delete</a>
-            </div>
-        {% endfor %}
-    </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
